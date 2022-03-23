@@ -8,7 +8,16 @@ const internSchema = new mongoose.Schema({
     name: {
         type: String,
         required: "Student name is required",
-        trim: true
+        trim: true,
+        // validate: {
+        //     validator: function (name){
+        //         if (/^(?:[-A-Z]+\.? )+[-A-Z]+$/.test(name)){
+        //             return (true)
+        //         }
+        //         alert("You have entered an invalid student name!")
+        //         return (false)
+        //     }
+        // }
     },
     email: {
         type: String,
@@ -27,6 +36,8 @@ const internSchema = new mongoose.Schema({
     mobile: {
         type: Number,
         unique: true,
+        trim: true,
+        required: "Mobile number is required",
         validate: {
             validator: function (mobile) {
                 if (/^\d{10}$/.test(mobile)) {
