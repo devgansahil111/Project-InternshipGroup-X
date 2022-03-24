@@ -24,7 +24,7 @@ const createCollege = async function (req, res){
         // if (!(/^(?:[-A-Z]+\.? )+[-A-Z]+$/.test(name))){
         //     res.status(400).send({ status: false, msg: "Name should not have any special characters"})
         //     return
-        // }
+        // }  Regex
         let isNameAlreadyUsed = await collegeModel.findOne({ name })
         if (isNameAlreadyUsed) {
             res.status(400).send({ status: false, msg: "This name has already used" })
